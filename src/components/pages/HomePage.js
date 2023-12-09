@@ -13,6 +13,8 @@ function HomePage() {
   const [fromCurrency, setFromCurrency] = useState('');
   const [selectedLabelFrom, setselectedLabelFrom] = useState('');
   const [selectedLabelTo, setselectedLabelTo] = useState('');
+  const [showExchangeRates, setShowExchangeRates] = useState(false);
+  const [title, settiltle] = useState('Exchange Rate');
 
   const [toCurrency, setToCurrency] = useState('');
   const [conversionResult, setConversionResult] = useState(null);
@@ -73,7 +75,7 @@ function HomePage() {
     >
       <Form>
         <div>
-          <GenericSection title="Currency Exchanger">
+          <GenericSection title={title}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={4}>
                 <TextIput name="amount" label="Amount" type="number" color="secondary" width="100%" />
@@ -133,7 +135,7 @@ function HomePage() {
               </Grid>
 
               <Grid item xs={12} sm={4}>
-                <TextIput label="" name="email" type="email" value="john@example.com" />
+                {/* <TextIput label="" name="email" type="email" value="john@example.com" /> */}
               </Grid>
 
               <Grid item xs={12} sm={4}>
@@ -148,9 +150,19 @@ function HomePage() {
             </Grid>
           </GenericSection>
 
+
+
+     {/* Conditional rendering based on showExchangeRates */}
+     {showExchangeRates ? (
           <GenericSection title="Exchange Rates">
             <CurrencyConverter fromCurrency={fromCurrency} toCurrency={toCurrency} />
           </GenericSection>
+        ) : (
+          <GenericSection title="Chart History">
+            {/* Render your ChartHistory component */}
+            {/* <ChartHistory /> */}
+          </GenericSection>
+        )}
         </div>
       </Form>
     </Formik>
