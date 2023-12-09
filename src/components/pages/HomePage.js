@@ -13,7 +13,7 @@ function HomePage() {
   const [fromCurrency, setFromCurrency] = useState("");
   const [selectedLabelFrom, setselectedLabelFrom] = useState("");
   const [selectedLabelTo, setselectedLabelTo] = useState("");
-  const [showExchangeRates, setShowExchangeRates] = useState(false);
+  const [showExchangeRates, setShowExchangeRates] = useState(true);
   const [title, settiltle] = useState("Exchange Rate");
 
   const [toCurrency, setToCurrency] = useState("");
